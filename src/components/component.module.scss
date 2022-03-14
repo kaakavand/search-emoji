@@ -1,0 +1,18 @@
+.row {
+    font-family: 'iransans';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    border-radius: 3px;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
