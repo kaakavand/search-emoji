@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { getCategory } from "../../api/getCategory.api";
 import { getEmoji } from "../../api/getEmoji.api";
 import RowEmojiInfo from "../../components/RowEmojiInfo.component";
@@ -7,27 +7,24 @@ import style from "./home.module.scss";
 
 function Home() {
     const [emojis, setEmojis] = useState([]);
-    const [category, setCategory] = useState([]);
     const [numberPage, setNumberPage] = useState([]);
     const [all, setAll] = useState([]);
-    const [value, setfirst] = useState("");
-    const [page, setPage] = useState(1)
+    const [flag, setFlag] = useState(false);
+    const [value, setValue] = useState('')
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getEmoji().then((res) => setEmojis(res));
-        getCategory().then((res) => setCategory(res));
-        // setNumberPage(numberOfPage(all.length));
     }, []);
-    console.log(emojis.length);
 
     useEffect(() => {
         setAll(emojis);
     }, [emojis]);
-    
+
     useEffect(() => {
         setNumberPage(numberOfPage(all.length));
+        all.length ? setFlag(false) : setFlag(true);
     }, [all]);
-    
 
     const changeValu = ({ target }) => {
         const ArrNew = emojis.filter((item) =>
@@ -35,20 +32,33 @@ function Home() {
         );
         setNumberPage(numberOfPage(all.length));
         setAll(ArrNew);
+        setValue(target.value)
     };
 
     return (
         <div className="container">
-            <input placeholder="enter name emoji ..." type="text" onChange={changeValu} />
-            {all.slice(page - 1 , page + 4).map((item) => (
-                <RowEmojiInfo
-                    character={item.character}
-                    name={item.unicodeName}
-                />
-            ))}
+            <input
+                placeholder="enter name emoji ..."
+                type="text"
+                onChange={changeValu}
+            />
+            <div>
+                {all.slice(page * 5 - 5, page * 5).map((item) => (
+                    <RowEmojiInfo
+                        character={item.character}
+                        name={item.unicodeName}
+                    />
+                ))}
+            </div>
+            {flag ? <div className={style.error}>{value} Not Found !</div> : null}
             <ul>
                 {numberPage.map((item) => (
-                    <li className={page === item ? style.active : null} onClick={(e) => setPage(Number(e.target.innerText))}>{item}</li>
+                    <li
+                        className={page === item ? style.active : null}
+                        onClick={(e) => setPage(Number(e.target.innerText))}
+                    >
+                        {item}
+                    </li>
                 ))}
             </ul>
         </div>

@@ -7,7 +7,8 @@ input {
     padding: 10px 10px;
     border-radius: 3px;
     box-sizing: border-box;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+        rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border: none;
     outline: none;
     font-size: 18px;
@@ -16,15 +17,15 @@ input {
 
 ul {
     display: flex;
-    width: 1200px;   
+    width: 1200px;
     justify-content: center;
     margin-top: 25px;
 
     li {
         list-style: none;
-        font-family: 'iransans';
+        font-family: "iransans";
         padding: 5px 10px;
-        border-radius: 90px;
+        border-radius: 5px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         margin: 0 10px;
         cursor: pointer;
@@ -32,6 +33,20 @@ ul {
 }
 
 .active {
-    background-color: #004D40;
-    color: #E0F2F1;
+    background-color: #004d40;
+    color: #e0f2f1;
+}
+
+.error {
+    width: 100%;
+    background-color: #ffebee;
+    color: #f44336;
+    margin-top: 15px;
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "iransans";
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
