@@ -4,13 +4,16 @@ import { getEmoji } from "../../api/getEmoji.api";
 import RowEmojiInfo from "../../components/RowEmojiInfo.component";
 import { numberOfPage } from "../../utils/nimberOfArr";
 import style from "./home.module.scss";
+import { ToastContainer, toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
     const [emojis, setEmojis] = useState([]);
     const [numberPage, setNumberPage] = useState([]);
     const [all, setAll] = useState([]);
     const [flag, setFlag] = useState(false);
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState("");
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -32,7 +35,7 @@ function Home() {
         );
         setNumberPage(numberOfPage(all.length));
         setAll(ArrNew);
-        setValue(target.value)
+        setValue(target.value);
     };
 
     return (
@@ -50,10 +53,13 @@ function Home() {
                     />
                 ))}
             </div>
-            {flag ? <div className={style.error}>{value} Not Found !</div> : null}
+            {flag ? (
+                <div className={style.error}>{value} Not Found !</div>
+            ) : null}
             <ul>
-                {numberPage.map((item) => (
+                {numberPage.map((item, index) => (
                     <li
+                        key={index}
                         className={page === item ? style.active : null}
                         onClick={(e) => setPage(Number(e.target.innerText))}
                     >
