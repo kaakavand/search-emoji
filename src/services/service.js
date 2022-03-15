@@ -3,7 +3,7 @@ import { API_INFO } from "../config/api.config";
 
 class HttpService {
     constructor() {
-        axios.defaults.baseURL = API_INFO.URL + API_INFO.KEY;
+        axios.defaults.baseURL = API_INFO.URL;
         axios.interceptors.request.use(
             (config) => {
                 return config;

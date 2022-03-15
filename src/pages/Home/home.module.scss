@@ -1,0 +1,23 @@
+.container {
+    width: 1200px;
+}
+
+ul {
+    display: flex;
+    width: 1200px;   
+    justify-content: center;
+
+    li {
+        list-style: none;
+        font-family: 'iransans';
+        padding: 5px 10px;
+        border-radius: 90px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        margin: 0 10px;
+    }
+}
+
+.active {
+    background-color: #004D40;
+    color: #E0F2F1;
+}
