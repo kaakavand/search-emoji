@@ -18,6 +18,7 @@ function Home() {
         getCategory().then((res) => setCategory(res));
         // setNumberPage(numberOfPage(all.length));
     }, []);
+    console.log(emojis.length);
 
     useEffect(() => {
         setAll(emojis);
@@ -38,7 +39,7 @@ function Home() {
 
     return (
         <div className="container">
-            <input type="text" onChange={changeValu} />
+            <input placeholder="enter name emoji ..." type="text" onChange={changeValu} />
             {all.slice(page - 1 , page + 4).map((item) => (
                 <RowEmojiInfo
                     character={item.character}
