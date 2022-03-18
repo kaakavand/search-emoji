@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import { getCategory } from "../../api/getCategory.api";
+import React, { useEffect, useState } from "react";
 import { getEmoji } from "../../api/getEmoji.api";
 import RowEmojiInfo from "../../components/RowEmojiInfo.component";
 import { numberOfPage } from "../../utils/nimberOfArr";
 import style from "./home.module.scss";
-import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,6 +28,7 @@ function Home() {
     }, [all]);
 
     const changeValu = ({ target }) => {
+        setPage(1);
         const ArrNew = emojis.filter((item) =>
             item.unicodeName.includes(target.value)
         );
@@ -46,8 +45,9 @@ function Home() {
                 onChange={changeValu}
             />
             <div>
-                {all.slice(page * 5 - 5, page * 5).map((item) => (
+                {all.slice(page * 5 - 5, page * 5).map((item , index) => (
                     <RowEmojiInfo
+                        key={index}
                         character={item.character}
                         name={item.unicodeName}
                     />
