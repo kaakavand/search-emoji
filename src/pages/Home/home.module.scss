@@ -19,8 +19,9 @@ ul {
     display: flex;
     width: 1200px;
     justify-content: center;
-    margin-top: 25px;
-
+    box-sizing: border-box;
+    padding-left: 0;
+    
     li {
         list-style: none;
         font-family: "iransans";
@@ -28,6 +29,7 @@ ul {
         border-radius: 5px;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         margin: 0 10px;
+        margin-top: 10px;
         cursor: pointer;
     }
 }

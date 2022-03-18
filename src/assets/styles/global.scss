@@ -1,3 +1,56 @@
 :root {
     --toastify-color-success: #004d40;
 }
+
+@media only screen and (max-width: 1250px) {
+    .container,
+    ul {
+        width: 1000px !important;
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .container,
+    ul {
+        width: 800px !important;
+    }
+
+    li {
+        padding: 2px 5px;
+        margin: 0 5px;
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .container,
+    ul {
+        width: 600px !important;
+    }
+    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    h1 {
+        font-size: 21px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .container,
+    ul {
+        width: 400px !important;
+    }
+    h1 {
+        font-size: 17px;
+    }
+    
+}
+@media only screen and (max-width: 450px) {
+    .container,
+    ul {
+        width: 300px !important;
+    }
+    
+}
