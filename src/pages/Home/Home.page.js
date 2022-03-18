@@ -48,7 +48,7 @@ function Home() {
                 </div>
             </header>
             <div className={style.container}>
-                <div>
+                <div className={style.box_content}>
                     {all.slice(page * 30 - 30, page * 30).map((item, index) => (
                         <RowEmojiInfo
                             key={index}
